@@ -1,15 +1,11 @@
 <?php
-/**
- * @package Hello_Dolly
- * @version 1.7.2
- */
 /*
 Plugin Name: Print My Blog - Sample Easy Design
 Plugin URI: https://github.com/mnelson4/pmb-sample-design-easy
 Description: A simple example design that does not support dividing projects into parts or front and back matter.
 Author: Mike Nelson
 Version: 1.0.0
-Author URI:
+Author URI: https://printmy.blog
 */
 
 use PrintMyBlog\entities\DesignTemplate;

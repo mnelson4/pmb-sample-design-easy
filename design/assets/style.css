@@ -1,10 +1,23 @@
-/* pagination */
+/* Use the @media selector to make the CSS selectors more likely to take precedence over competing styles from plugins,
+WordPress core, and possibly the active theme. */
 @media print, screen {
+
+    /*
+    See https://www.princexml.com/doc/paged/#named-pages for documentation on "page", but basically it says the pmb-main-matter
+    div should start on a new page which we'll call "main" throughout the rest of the CSS file
+    See https://www.princexml.com/doc/gen-content/#counters-and-numbering for "counter-reset" says page numbering should
+    start at 1 on the first page of main matter.
+     */
     .pmb-main-matter {
         display: block;
         page: main;
         counter-reset: page 1
     }
+
+    /**
+    Each main page should have its footnotes reset, and its footnotes should have a solid black line on top and a bit of space.
+    The page number should go in the bottom-right corner.
+     */
     @page main {
         counter-reset: footnote;
 
@@ -16,6 +29,9 @@
             content: counter(page)
         }
     }
+    /**
+    See https://www.princexml.com/doc/styling/#footnotes for documentation on footnotes
+     */
     body{
         prince-footnote-policy: keep-with-line;
     }
@@ -24,26 +40,20 @@
     body{
         font-family:Times;
     }
+
+    /**
+    Avoid pagebreaks inside and after any headings.
+    See https://www.princexml.com/doc/13/paged/#page-breaks
+     */
     h1,h2,h3,h4,h5,h6{
         font-family:Calibri;
         page-break-after:avoid;
         page-break-inside:avoid;
     }
 
-    /* toc, if it were used */
-    .pmb-toc-list li{
-        list-style:none;
-    }
-    .pmb-toc-item.pmb-toc-depth-2{
-        margin-left:1em;
-    }
-    .pmb-toc-list .pmb-toc-item.pmb-toc-front a::after {
-        content: leader('.') target-counter(attr(href), page, lower-roman) !important;
-    }
-    .pmb-toc-list .pmb-toc-item:not(.pmb-toc-front) a::after {
-        content: leader('.') target-counter(attr(href), page) !important;
-    }
-
+    /**
+    Turn any spans with the CSS class "pmb-footnote" into footnotes
+     */
     .pmb-posts span.pmb-footnote{
         float:footnote;
         text-align:left;

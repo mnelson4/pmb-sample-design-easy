@@ -2,7 +2,7 @@ jQuery(document).ready(function(){
     pmb_remove_unsupported_content();
     // Pretty up the page
     pmb_add_header_classes();
-        pmb_default_align_center();
+    pmb_default_align_center();
     pmb_fix_wp_videos();
     pmb_convert_youtube_videos_to_images();
     pmb_load_avada_lazy_images();
