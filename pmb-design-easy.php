@@ -3,8 +3,9 @@
 Plugin Name: Print My Blog - Sample Easy Design
 Plugin URI: https://github.com/mnelson4/pmb-sample-design-easy
 Description: A simple example design that does not support dividing projects into parts or front and back matter.
+Works with PMB 3.21.0 and higher.
 Author: Mike Nelson
-Version: 1.0.0
+Version: 1.1.0
 Author URI: https://printmy.blog
 */
 
